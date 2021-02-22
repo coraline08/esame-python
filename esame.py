@@ -110,16 +110,17 @@ def daily_stats(time_series):
 
             #se l'epoch i-esimo è diverso dal suo precedente 
             elif epoch!=epoch_prec:
-                #calcolo min
-                minimo = min(temperature_list)
-                #calcolo max
-                massimo = max(temperature_list)
-                #calcolo media
-                media = sum(temperature_list)/len(temperature_list)
-                #appendo i calcoli nella final_list
-                final_list.append( [ minimo, massimo, media] )
-                #svuoto la lista delle temperature per ripulire il contenuto automaticamente e proseguire con il successivo
-                temperature_list.clear()
+                for i in temperature_list:
+                    #calcolo min
+                    minimo = min(i)
+                    #calcolo max
+                    massimo = max(i)
+                    #calcolo media
+                    media = sum(i)/len(i)
+                    #appendo i calcoli nella final_list
+                    final_list.append( [ minimo, massimo, media] )
+                    #svuoto la lista delle temperature per ripulire il contenuto automaticamente e proseguire con il successivo
+                    temperature_list.clear()
 
     #faccio ritornare la lista finale
     return final_list
